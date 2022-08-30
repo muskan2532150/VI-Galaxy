@@ -63,13 +63,54 @@ nav ul {
   width: 100%;
   border-radius: 7% 7% 0 0;
 }
-.cards div {
+.cards > div {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   margin: 5%;
 }
-.cards div h3 {
+.cards > div > div {
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  flex-direction: column;
+}
+.cards > div > div p {
+  font-weight: 600;
+  color: rgba(238, 110, 5, 0.87);
+  font-size: 1.4vw;
+}
+.cards > div h3 {
   font-size: 1.7vw;
   margin: 0;
+}
+.cards > div i {
+  font-size: 1.4vw;
+}
+.cards > div i:hover {
+  color: rgba(238, 110, 5, 0.87);
+}
+
+.btndiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.btncomment,
+.btnreserv {
+  background-color: rgba(238, 110, 5, 0.87);
+  color: hsl(0deg, 0%, 0%);
+  font-size: 1.2vw;
+  font-weight: 700;
+  width: 95%;
+  border: none;
+  border-radius: 2rem;
+  text-align: center;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 1rem 0;
+  margin-bottom: 1rem;
 }/*# sourceMappingURL=main.css.map */

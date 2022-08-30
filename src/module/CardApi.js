@@ -16,7 +16,9 @@ const createcard =  (data) =>{
             const cardBody = create('div', undefined, cards);
             const h1Text = create('h3', undefined, cardBody);
             h1Text.append(el.name);
-            const iText = create('i',['fa-solid','fa-heart'] , cardBody);
+            const likeDiv = create('div', undefined, cardBody);
+            const iText = create('i',['fa-solid','fa-heart'] , likeDiv);
+             create('p', ['card-p'], likeDiv);
             const btnDiv = create('div',['btndiv'], cards);
             const buttonText = create('button', ['btncomment'], btnDiv);
             buttonText.append('Comment');
