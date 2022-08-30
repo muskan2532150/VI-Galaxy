@@ -1,6 +1,10 @@
 #home {
+  > div {
   display: grid;
   grid-template-columns: 30% 30% 30%;
   margin: 30px;
-  gap: 5%;
+  gap: 1.5rem;
+  padding-inline:15%;
+  }
+
 }

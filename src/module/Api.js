@@ -16,6 +16,11 @@ const createcard =  (data) =>{
             const cardBody = create('div', undefined, cards);
             const h1Text = create('h3', undefined, cardBody);
             h1Text.append(el.name);
+            const buttText = create('button', undefined, cardBody);
+            const buttonText = create('button', undefined, cards);
+            buttonText.append('Comment');
+            const buttonText1 = create('button', undefined, cards);
+            buttonText1.append('Reservation');
         }
     });
 }
