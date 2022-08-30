@@ -16,10 +16,11 @@ const createcard =  (data) =>{
             const cardBody = create('div', undefined, cards);
             const h1Text = create('h3', undefined, cardBody);
             h1Text.append(el.name);
-            const buttText = create('button', undefined, cardBody);
-            const buttonText = create('button', undefined, cards);
+            const iText = create('i',['fa-solid','fa-heart'] , cardBody);
+            const btnDiv = create('div',['btndiv'], cards);
+            const buttonText = create('button', ['btncomment'], btnDiv);
             buttonText.append('Comment');
-            const buttonText1 = create('button', undefined, cards);
+            const buttonText1 = create('button', ['btnreserv'], btnDiv);
             buttonText1.append('Reservation');
         }
     });

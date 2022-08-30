@@ -17,5 +17,30 @@
       font-size: 1.7vw;
       margin: 0;
     }
+    i {
+      font-size: 1.4vw;
+      
+      &:hover{
+        color: rgba(238, 110, 5, 0.87);
+      }
+    }
   }
+}
+.btndiv{
+  @include display(flex,center,center);
+  flex-direction: column;
+  padding-top: 2rem;
+}
+.btncomment, .btnreserv{
+  background-color:rgba(238, 110, 5, 0.87);
+  color: hsl(0, 0%, 0%);
+  font-size: 1.2vw;
+  font-weight: 700;
+  width: 95%;
+  border:none;
+  border-radius: 2rem;
+  text-align: center;
+  height: fit-content;
+  padding: 1rem 0;
+  margin-bottom: 1rem;
 }
