@@ -1,0 +1,29 @@
+@mixin display($display, $content, $item) {
+  display: $display;
+  justify-content: $content;
+  align-items: $item;
+}
+
+nav {
+  @include display(flex, space-between, center);
+  margin: 30px;
+
+  a {
+    text-decoration: none;
+    text-shadow: 9px 8px 9px black;
+
+    img {
+      font-size: 2.5vw;
+    transform: skewX(9deg);
+    text-decoration: none;
+    }
+
+  }
+
+  ul {
+    @include display(flex, end, center);
+    list-style: none;
+    gap: 10%;
+    font-size: 1.7vw;
+  }
+}
