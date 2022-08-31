@@ -108,8 +108,6 @@ nav ul {
   border: none;
   border-radius: 2rem;
   text-align: center;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
   height: fit-content;
   padding: 1rem 0;
   margin-bottom: 1rem;
