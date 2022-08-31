@@ -22,12 +22,18 @@ nav ul {
   font-size: 1.7vw;
 }
 
+#home {
+  pointer-events: none;
+}
 #home > div {
   display: grid;
   grid-template-columns: 30% 30% 30%;
   margin: 30px;
   gap: 1.5rem;
   padding-inline: 15%;
+}
+#home i, #home button {
+  pointer-events: visible;
 }
 
 nav {
@@ -223,9 +229,6 @@ nav ul {
   font-weight: 600;
 }
 .commentFormsec form {
-  display: flex;
-  justify-content: start;
-  align-items: start;
   flex-direction: column;
   gap: 1rem;
 }/*# sourceMappingURL=main.css.map */

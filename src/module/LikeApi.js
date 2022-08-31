@@ -1,15 +1,15 @@
-import { Home } from "./Import";
+import { Home, arr } from './Import.js';
 
-const urlLike = ' https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/RJjXXfLZVNow7n5VSnHJ/likes';
+const urlLike = ' https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/HXiyRBssDCt7xgEOUDxr/likes';
 
 const getLike = async () => {
   await fetch(urlLike)
     .then((response) => response.json())
     .then((data) => {
       const pText = document.querySelectorAll('.card-p');
-      console.log([...data]);
       [...data].forEach((el, index) => {
-        [...pText][index].append(`${el.likes} likes`);
+        [...pText][index].innerHTML = `${el.likes} likes`;
+        arr[index] = el.likes;
       });
     });
 };
@@ -25,30 +25,17 @@ const setLike = async (id) => {
     },
   });
 };
-// // like button event listener
-// Home.addEventListener('click', (e) => {
-//   const Like = document.querySelectorAll('.fa-solid');
-// console.log(Like);
-// Like.forEach((like) => {
-//   like.addEventListener('click', (e) => {
-//     e.preventDefault();
-//     e.classlist.toggle('fa-heart');
-//     setLike(e.target.id);
-//     console.log(e.target.id);
-//     getLike();
-//   });
-// });
-// });
 
-
-
-
-Home.addEventListener('click',(e)=>{
-
-  let id = e.target.parentNode.parentNode.parentNode.id;
-  setLike(id);
-  const error = document.getElementsByTagName('.cards p');
-  console.log([...error].remove());
-  getLike();
+Home.addEventListener('click', (e) => {
+  if (e.target.className.toString() === 'fa-solid fa-heart'.toString()) {
+    const { id } = e.target.parentNode.parentNode.parentNode;
+    setLike(id);
+    arr[id] += 1;
+    const error = document.querySelectorAll('.cards p');
+    [...error].forEach((el, index) => {
+      el.innerHTML = '';
+      el.innerHTML = `${arr[index]} likes`;
+    });
+  }
 });
 export default getLike;
