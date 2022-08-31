@@ -114,9 +114,35 @@ nav ul {
   border: none;
   border-radius: 2rem;
   text-align: center;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
   height: fit-content;
   padding: 1rem 0;
   margin-bottom: 1rem;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 5%;
+}
+nav a {
+  text-decoration: none;
+  text-shadow: 9px 8px 9px black;
+}
+nav a img {
+  font-size: 2.5vw;
+  transform: skewX(9deg);
+  text-decoration: none;
+}
+nav ul {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  list-style: none;
+  gap: 10%;
+  font-size: 1.7vw;
 }
 
 .pop-up-overlay {
@@ -136,10 +162,7 @@ nav ul {
   transition: opacity 0.5s ease-in-out;
 }
 .pop-up-overlay .main-pop {
-  display: flex;
-  justify-content: end;
-  align-items: flex-start;
-  flex-direction: column;
+  display: none;
   background-color: rgb(255, 255, 255);
   padding: 1.5rem;
   min-height: 50vh;
@@ -148,6 +171,12 @@ nav ul {
   max-width: 50vw;
   border: none;
   border-radius: 1rem;
+}
+.pop-up-overlay .main-pop:first-child {
+  display: flex;
+  justify-content: end;
+  align-items: flex-start;
+  flex-direction: column;
 }
 .pop-up-overlay .main-pop:hover {
   border: 5px solid rgba(238, 110, 5, 0.87);
@@ -231,4 +260,10 @@ nav ul {
 .commentFormsec form {
   flex-direction: column;
   gap: 1rem;
+}
+
+.active {
+  display: flex;
+  justify-content: start;
+  align-items: start;
 }/*# sourceMappingURL=main.css.map */
