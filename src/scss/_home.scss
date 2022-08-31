@@ -1,4 +1,6 @@
 #home {
+  pointer-events: none;
+
   > div {
   display: grid;
   grid-template-columns: 30% 30% 30%;
@@ -7,4 +9,7 @@
   padding-inline:15%;
   }
 
+  i,button {
+    pointer-events: visible;
+  }
 }

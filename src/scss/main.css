@@ -22,12 +22,18 @@ nav ul {
   font-size: 1.7vw;
 }
 
+#home {
+  pointer-events: none;
+}
 #home > div {
   display: grid;
   grid-template-columns: 30% 30% 30%;
   margin: 30px;
   gap: 1.5rem;
   padding-inline: 15%;
+}
+#home i, #home button {
+  pointer-events: visible;
 }
 
 nav {
@@ -108,6 +114,8 @@ nav ul {
   border: none;
   border-radius: 2rem;
   text-align: center;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
   height: fit-content;
   padding: 1rem 0;
   margin-bottom: 1rem;
