@@ -1,6 +1,5 @@
 const urlLike = ' https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/RJjXXfLZVNow7n5VSnHJ/likes'
 
-
 const getLike = async () => {
     await fetch(urlLike)
    .then((response) => response.json())
@@ -25,5 +24,5 @@ const setLike =  async (id) => {
     })
 }
 
-console.log(setLike(), getLike());
+export const Like =document.querySelectorAll('.fa-solid');
 export { getLike,setLike };

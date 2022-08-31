@@ -1,10 +1,12 @@
 import create from "./ceateElement.js";
 import {Home} from "./Import.js";
+import {getLike} from "./LikeApi.js"
 
 const url = 'https://api.tvmaze.com/shows/1/episodes?specials=1';
 
 const createcard =  (data) =>{
     const mainDiv = create('div',undefined,Home);
+    getLike();
      [...data].forEach(el => {
         if(el.image['medium'] !== null)
         {
