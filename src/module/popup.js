@@ -29,17 +29,18 @@ const popStruct = (el, index) => {
     p4.append(el.runtime);
     const h31 = create('h3', ['commentCount'], mainDiv);
     h31.append('Comments');
+    getcomment(index);
     const comment = create('div', ['comment-content'], mainDiv);
     comment.id = index;
     const commentDiv = create('div', ['commentFormsec'], mainDiv);
     const h3Text = create('h3', ['leave-cut'], commentDiv);
     h3Text.append('Leave a comment');
-    const form = create('form', undefined, commentDiv);
-    const text = create('input', undefined, form);
+    const form = create('form', ['form'], commentDiv);
+    const text = create('input', ['parafrom'], form);
     text.type = 'text';
     text.id = 'username';
     text.placeholder = 'Your name please';
-    const input = create('textarea', undefined, form);
+    const input = create('textarea', ['inputpara'], form);
     input.name = 'comment';
     input.id = "comment";
     input.cols = 30; input.rows = 10;
@@ -48,6 +49,15 @@ const popStruct = (el, index) => {
     button.type = 'button';
     button.name = 'comment';
     button.value = 'comment';
+
+    const Form=document.queryselectorAll('.form');
+    Form.addEventListner('comment',()=>{
+        const name = document.querySelectorAll('.parafrom');
+        const inputpara = document.querySelectorAll('.inputpara');
+        const id = e.target.parentNode.previousElemtSibling.id;
+        console.log(id,name.value,inputpara.value);
+        setComment(id,name.value,inputpara.value);
+    })
 }
 
 const setComment = async (id, name, comment) => {
