@@ -10,7 +10,7 @@ const popStruct = async (el, index,mainDivpop) => {
   const h3 = create('h3', ['popupHeader'], imgDiv);
   h3.append(el.name);
   const para = create('div', ['summary'], mainDivpop);
-  const pText = create('p', undefined, para);
+  const pText = create('p', ['sumpara'], para);
   pText.append(el.summary);
   const itemDiv = create('div', ['item-info'], mainDivpop);
   const span = create('span', undefined, itemDiv);

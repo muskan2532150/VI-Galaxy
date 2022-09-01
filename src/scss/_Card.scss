@@ -20,9 +20,11 @@
     flex-direction: column;
 
     p {
+      @include display(flex, center, center);
       font-weight: 600;
       color: $color;
-      font-size: 1.4vw;
+      width: max-content;
+      font-size: 1.1vw;
     }
    }
 
