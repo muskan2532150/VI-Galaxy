@@ -146,9 +146,7 @@ nav ul {
 }
 
 .pop-up-overlay {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: none;
   flex-direction: column;
   background-color: hsl(0deg, 0%, 0%);
   width: 100%;
@@ -161,7 +159,9 @@ nav ul {
   background-color: hsla(0deg, 0%, 0%, 0.836);
   transition: opacity 0.5s ease-in-out;
 }
-.pop-up-overlay .main-pop {
+
+.main-pop {
+  flex-direction: column;
   display: none;
   background-color: rgb(255, 255, 255);
   padding: 1.5rem;
@@ -172,23 +172,18 @@ nav ul {
   border: none;
   border-radius: 1rem;
 }
-.pop-up-overlay .main-pop:first-child {
-  display: flex;
-  justify-content: end;
-  align-items: flex-start;
-  flex-direction: column;
-}
-.pop-up-overlay .main-pop:hover {
+.main-pop:hover {
   border: 5px solid rgba(238, 110, 5, 0.87);
 }
-.pop-up-overlay .main-pop .fa-xmark {
+
+.fa-xmark {
   position: relative;
   color: rgba(238, 110, 5, 0.87);
   font-size: 2rem;
   cursor: pointer;
   align-self: end;
 }
-.pop-up-overlay .main-pop .fa-xmark:hover {
+.fa-xmark:hover {
   color: rgba(238, 110, 5, 0.87);
 }
 
@@ -205,6 +200,7 @@ nav ul {
   width: 100%;
   height: 100%;
 }
+
 .item_info {
   display: flex;
   justify-content: space-between;
@@ -215,6 +211,7 @@ nav ul {
   font-size: 1.2rem;
   font-weight: 600;
 }
+
 .commetCount {
   align-self: center;
   font-size: 1.2rem;
@@ -260,10 +257,4 @@ nav ul {
 .commentFormsec form {
   flex-direction: column;
   gap: 1rem;
-}
-
-.active {
-  display: flex;
-  justify-content: start;
-  align-items: start;
 }/*# sourceMappingURL=main.css.map */

@@ -1,7 +1,7 @@
 import create from './ceateElement.js';
-import { Home, arr } from './Import.js';
+import { Home, arr, overLay,pop } from './Import.js';
 import getLike from './LikeApi.js';
-import popStruct from './popup.js';
+import { popStruct, setComment,getComment } from './popup.js';
 
 const url = 'http://api.tvmaze.com/shows/1/episodes?specials=1';
 
@@ -12,9 +12,45 @@ const createcard = (data) => {
     if (el.image?.medium) {
       arr[index] = 0;
      homePage(el,mainDiv,index);
-     popStruct(el,index);
+     const mainDivpop = create('div', ['main-pop'], pop);
+     mainDivpop.id=index+90;
+     popStruct(el,index,mainDivpop);
     }
   });
+  const mainPop = document.querySelectorAll('.main-pop');
+ 
+  const btnComment = document.querySelectorAll('.btncomment');
+  [...btnComment].forEach(btn=>{
+    btn.addEventListener('click',(e)=>{
+    overLay.style.display='flex';
+    let commentId = e.target.parentNode.parentNode.id;
+     mainPop[commentId].style.display='flex';
+     document.body.style.overflow='hidden';
+  })
+});
+
+  const Form = document.querySelectorAll('.form');
+  [...Form].forEach(forms=>{
+    forms.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (index.toString() === e.target.id) {
+        const names = document.querySelector('.names').value;
+        const comm = document.querySelector('.textarea').value;
+        setComment(e.target.id, names, comm);
+        getComment(e.target.id);
+      }
+    });
+  })
+
+  const closeBtn = document.querySelectorAll('.fa-xmark');
+  [...closeBtn].forEach(close=>{
+    close.addEventListener('click', (e) => {
+      overLay.style.display = 'none';
+      console.log(e.target.parentNode.id);
+       mainPop[(e.target.parentNode.id)-90].style.display= 'none';
+      document.body.style.overflow = 'visible';
+    });
+  })
 };
 
 const homePage = (el,mainDiv,index) => {
@@ -34,6 +70,7 @@ const homePage = (el,mainDiv,index) => {
   buttonText.append('Comment');
   const buttonText1 = create('button', ['btnreserv'], btnDiv);
   buttonText1.append('Reservation');
+
 }
 
 const getData = async () => {
