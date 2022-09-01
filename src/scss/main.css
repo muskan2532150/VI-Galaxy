@@ -147,9 +147,9 @@ nav ul {
 
 .pop-up-overlay {
   display: none;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
-  padding-top: 32rem;
+  padding-top: 1rem;
   flex-direction: column;
   background-color: hsl(0deg, 0%, 0%);
   width: 100%;
@@ -168,7 +168,6 @@ nav ul {
   flex-direction: column;
   display: none;
   background-color: rgb(255, 255, 255);
-  padding: 0;
   min-height: auto;
   min-width: 40vw;
   width: 70vw;
