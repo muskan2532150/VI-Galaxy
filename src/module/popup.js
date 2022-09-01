@@ -1,9 +1,9 @@
 import create from "./ceateElement.js";
 import { pop } from "./Import.js";
 
-const url = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/HXiyRBssDCt7xgEOUDxr/comments`
-
-const popStruct = (el, index) => {
+const url = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/HXiyRBssDCt7xgEOUDxr/comments`;
+//  https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/HXiyRBssDCt7xgEOUDxr/comments?item_id=0
+const popStruct = async (el, index) => {
     const mainDiv = create('div', ['main-pop'], pop);
     create('i', ['fa-solid', 'fa-xmark'], mainDiv);
     const imgDiv = create('div', ['img-head'], mainDiv);
@@ -29,25 +29,38 @@ const popStruct = (el, index) => {
     p4.append(el.runtime);
     const h31 = create('h3', ['commentCount'], mainDiv);
     h31.append('Comments');
+    getComment(index);
     const comment = create('div', ['comment-content'], mainDiv);
     comment.id = index;
     const commentDiv = create('div', ['commentFormsec'], mainDiv);
     const h3Text = create('h3', ['leave-cut'], commentDiv);
     h3Text.append('Leave a comment');
-    const form = create('form', undefined, commentDiv);
-    const text = create('input', undefined, form);
+    const form = create('form', ['form'], commentDiv);
+    form.id=index;
+    const text = create('input', ['names'], form);
     text.type = 'text';
-    text.id = 'username';
     text.placeholder = 'Your name please';
-    const input = create('textarea', undefined, form);
+    const input = create('textarea', ['textarea'], form);
     input.name = 'comment';
-    input.id = "comment";
     input.cols = 30; input.rows = 10;
     input.placeholder = 'Your comment in here';
-    const button = create('input', undefined, form);
-    button.type = 'button';
+    const button = create('button', undefined, form);
+    button.type = 'submit';
     button.name = 'comment';
-    button.value = 'comment';
+    button.append( 'Comment');
+
+    const Form = document.querySelector('.form');
+     Form.addEventListener('submit',(e)=>{
+        e.preventDefault();
+        let id =index;
+        if(index.toString()===e.target.id)
+        {
+            const names=document.querySelector('.names').value;
+            const comm =document.querySelector('.textarea').value;
+            setComment(e.target.id,names,comm);
+               getComment(e.target.id);
+        }
+     });
 }
 
 const setComment = async (id, name, comment) => {
@@ -64,17 +77,17 @@ const setComment = async (id, name, comment) => {
     });
 }
 
-
-
 const getComment = async (id) => {
-    const comment = document.querySelectorAll('.comment-content')
-    fetch(`${url}?item-id=${id}`)
+    console.log(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/HXiyRBssDCt7xgEOUDxr/comments?item_id=0`);
+    const comment = document.querySelector('.comment-content')
+    fetch(`  https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/HXiyRBssDCt7xgEOUDxr/comments?item_id=0`)
         .then((response) => response.json)
         .then((data) => {
-            [...data].forEach((el, index) => {
-                const pText = create('p', ['comment'], [...comment][index]);
-                pText.append(el.comment);
-            })
+            console.log( data.result);
+            // [...data].forEach((el, index) => {
+            //     const pText = create('p', ['comment'], comment);
+            //     pText.append(el.comment);
+            // })
         })
 }
 
