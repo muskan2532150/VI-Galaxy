@@ -17,4 +17,4 @@ Content-Type: application/json
 http://api.tvmaze.com/shows/1/episodes?specials=1
 
 ####
-https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/HXiyRBssDCt7xgEOUDxr/comments?item_id=1
+https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/HXiyRBssDCt7xgEOUDxr/comments?item_id=39
