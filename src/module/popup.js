@@ -25,10 +25,7 @@ const popStruct = async (el, index,mainDivpop) => {
   p4.append(el.runtime);
   const h31 = create('h3', ['commentCount'], mainDivpop);
   h31.append('Comments');
-  const data = getComment(index);
-  console.log(data);
-  showComment(data);
-  const comment = create('div', ['comment-content'], mainDivpop);
+   create('div', ['comment-content'], mainDivpop);
   const commentDiv = create('div', ['commentFormsec'], mainDivpop);
   const h3Text = create('h3', ['leave-cut'], commentDiv);
   h3Text.append('Leave a comment');
@@ -45,10 +42,8 @@ const popStruct = async (el, index,mainDivpop) => {
   button.type = 'submit';
   button.name = 'comment';
   button.append('Comment');
-
+  getComment(index);
 }
-
-
 
 const setComment = async (id, name, comment) => {
   fetch(url, {
@@ -64,18 +59,17 @@ const setComment = async (id, name, comment) => {
   });
 }
 
-const getComment = async (id) => {
-  const data = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/HXiyRBssDCt7xgEOUDxr/comments?item_id=${id}`)
-    .then((response) => response.json);
-  return data;
+const getComment = async (id) =>{
+    await fetch(`${url}?item_id=${id}`)
+   .then((response)=>response.json()).then((data)=>{
+showComment(data,id);
+   });
 }
 
-const showComment = (data) => {
-  const comment = document.querySelector('.comment-content');
-  console.log(Object.keys(data));
-  Object.keys(data).forEach((el) => {
-    console.log('u did it');
-    const pText = create('p', ['comment'], comment);
+const showComment = async (data,id) => {
+  const comment = document.querySelectorAll('.comment-content');
+  [...data].forEach((el) => {
+    const pText = create('p', ['comment'], comment[id]);
     pText.append(`${el.creation_date}  ${el.username} : ${el.comment} `);
   })
 }

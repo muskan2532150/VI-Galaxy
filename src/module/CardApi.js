@@ -46,7 +46,6 @@ const createcard = (data) => {
   [...closeBtn].forEach(close=>{
     close.addEventListener('click', (e) => {
       overLay.style.display = 'none';
-      console.log(e.target.parentNode.id);
        mainPop[(e.target.parentNode.id)-90].style.display= 'none';
       document.body.style.overflow = 'visible';
     });
