@@ -180,6 +180,15 @@ nav ul {
   box-shadow: 0px 0px 15px 0 rgba(255, 255, 255, 0.575);
 }
 
+.timecont {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  flex-direction: column;
+  padding-left: 5%;
+  font-size: 1.2rem;
+}
+
 .fa-xmark {
   position: absolute;
   color: rgba(238, 110, 5, 0.87);
@@ -217,6 +226,7 @@ nav ul {
   height: 100%;
   font-size: 1.2rem;
   font-weight: 600;
+  margin-bottom: 2rem;
 }
 
 .commentCount {
