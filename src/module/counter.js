@@ -2,4 +2,4 @@ const counterItem = (arr) => arr.length;
 
 const countercomment = (comm) => comm.length;
 
-export {counterItem, countercomment};
+export { counterItem, countercomment };

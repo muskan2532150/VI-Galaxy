@@ -1,9 +1,14 @@
 import create from './ceateElement.js';
-import { Home, arr, overLay,pop} from './Import.js';
+import {
+  Home, arr, overLay, pop,
+} from './Import.js';
 import getLike from './LikeApi.js';
-import { popStruct, setComment,getComment } from './popup.js';
-import { counterItem } from "./counter.js";
+import { setComment } from './popup.js';
+import { counterItem } from './counter.js';
+import { popStruct, homePage } from './structure.js';
 
+const date = new Date();
+const todayDate = date.toLocaleDateString('en-GB').split('/').join('-');
 
 const url = 'http://api.tvmaze.com/shows/1/episodes?specials=1';
 
@@ -13,69 +18,53 @@ const createcard = (data) => {
   [...data].forEach((el, index) => {
     if (el.image?.medium) {
       arr[index] = 0;
-     homePage(el,mainDiv,index);
-     const mainDivpop = create('div', ['main-pop'], pop);
-     mainDivpop.id=index+90;
-     popStruct(el,index,mainDivpop);
+      homePage(el, mainDiv, index);
+      const mainDivpop = create('div', ['main-pop'], pop);
+      mainDivpop.id = index + 90;
+      popStruct(el, index, mainDivpop);
     }
   });
 
   counterItem(arr);
-  console.log( counterItem(arr));
+
   const mainPop = document.querySelectorAll('.main-pop');
- 
+
   const btnComment = document.querySelectorAll('.btncomment');
-  [...btnComment].forEach(btn=>{
-    btn.addEventListener('click',(e)=>{
-    overLay.style.display='flex';
-    let commentId = e.target.parentNode.parentNode.id;
-     mainPop[commentId].style.display='flex';
-     document.body.style.overflow='hidden';
-  })
-});
+  [...btnComment].forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      overLay.style.display = 'flex';
+      const commentId = e.target.parentNode.parentNode.id;
+      mainPop[commentId].style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    });
+  });
 
   const Form = document.querySelectorAll('.form');
-  [...Form].forEach(forms=>{
+  [...Form].forEach((forms, index) => {
     forms.addEventListener('submit', (e) => {
       e.preventDefault();
-      if (index.toString() === e.target.id) {
-        const names = document.querySelector('.names').value;
-        const comm = document.querySelector('.textarea').value;
-        setComment(e.target.id, names, comm);
-        getComment(e.target.id);
+      const formId = Number(e.target.id);
+      if (index === formId - 40) {
+        const names = document.querySelectorAll('.names');
+        const comm = document.querySelectorAll('.textarea');
+        setComment(formId - 40, names[index].value, comm[index].value);
+        const commentAll = document.querySelectorAll('.comment-content');
+        const pText = create('p', ['comment'], commentAll[formId - 40]);
+        pText.append(`${todayDate}  ${names[index].value} : ${comm[index].value} `);
+        forms.reset();
       }
     });
-  })
+  });
 
   const closeBtn = document.querySelectorAll('.fa-xmark');
-  [...closeBtn].forEach(close=>{
+  [...closeBtn].forEach((close) => {
     close.addEventListener('click', (e) => {
       overLay.style.display = 'none';
-       mainPop[(e.target.parentNode.id)-90].style.display= 'none';
+      mainPop[(e.target.parentNode.id) - 90].style.display = 'none';
       document.body.style.overflow = 'visible';
     });
-  })
+  });
 };
-
-const homePage = (el,mainDiv,index) => {
-  const cards = create('div', ['cards'], mainDiv);
-  cards.id = index;
-  const img = create('img', ['card-img'], cards);
-  img.src = el.image.medium;
-  img.alt = el.name;
-  const cardBody = create('div', undefined, cards);
-  const h1Text = create('h3', undefined, cardBody);
-  h1Text.append(el.name);
-  const likeDiv = create('div', undefined, cardBody);
-  create('i', ['fa-solid', 'fa-heart'], likeDiv);
-  create('p', ['card-p'], likeDiv);
-  const btnDiv = create('div', ['btndiv'], cards);
-  const buttonText = create('button', ['btncomment'], btnDiv);
-  buttonText.append('Comment');
-  buttonText.type='button';
-  const buttonText1 = create('button', ['btnreserv'], btnDiv);
-  buttonText1.append('Reservation');
-}
 
 const getData = async () => {
   await fetch(url)
