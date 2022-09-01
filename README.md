@@ -29,7 +29,7 @@ The VI-Galaxy app gives you unlimited access to over 3 million free, high-resolu
 
 ## Live Demo available 
 
-[Live Demo Link]()
+[Live Demo Link](https://muskan2532150.github.io/VI-Galaxy/dist/)
 
 
 ## Getting Started
