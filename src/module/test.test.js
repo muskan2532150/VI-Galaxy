@@ -36,4 +36,5 @@ const comment = (comm) => comm.length;
 //     return result.length;
 //   };
   
-//   module.exports = getAllData;
+
+//testing the get data
