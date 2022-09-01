@@ -26,6 +26,7 @@ const createcard = (data) => {
     let commentId = e.target.parentNode.parentNode.id;
      mainPop[commentId].style.display='flex';
      document.body.style.overflow='hidden';
+  
   })
 });
 
