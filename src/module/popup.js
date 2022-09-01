@@ -1,7 +1,7 @@
 import create from "./ceateElement.js";
 
 const url = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/HXiyRBssDCt7xgEOUDxr/comments`;
-const popStruct = async (el, index,mainDivpop) => {
+const popStruct =  (el, index,mainDivpop) => {
   create('i', ['fa-solid', 'fa-xmark'], mainDivpop);
   const imgDiv = create('div', ['img-head'], mainDivpop);
   const img = create('img', undefined, imgDiv);

@@ -1,7 +1,9 @@
 import create from './ceateElement.js';
-import { Home, arr, overLay,pop,i } from './Import.js';
+import { Home, arr, overLay,pop} from './Import.js';
 import getLike from './LikeApi.js';
 import { popStruct, setComment,getComment } from './popup.js';
+import { counterItem } from "./counter.js";
+
 
 const url = 'http://api.tvmaze.com/shows/1/episodes?specials=1';
 
@@ -10,7 +12,6 @@ const createcard = (data) => {
   getLike();
   [...data].forEach((el, index) => {
     if (el.image?.medium) {
-      counterItem();
       arr[index] = 0;
      homePage(el,mainDiv,index);
      const mainDivpop = create('div', ['main-pop'], pop);
@@ -18,6 +19,9 @@ const createcard = (data) => {
      popStruct(el,index,mainDivpop);
     }
   });
+
+  counterItem(arr);
+  console.log( counterItem(arr));
   const mainPop = document.querySelectorAll('.main-pop');
  
   const btnComment = document.querySelectorAll('.btncomment');
@@ -27,7 +31,6 @@ const createcard = (data) => {
     let commentId = e.target.parentNode.parentNode.id;
      mainPop[commentId].style.display='flex';
      document.body.style.overflow='hidden';
-  
   })
 });
 
@@ -69,9 +72,9 @@ const homePage = (el,mainDiv,index) => {
   const btnDiv = create('div', ['btndiv'], cards);
   const buttonText = create('button', ['btncomment'], btnDiv);
   buttonText.append('Comment');
+  buttonText.type='button';
   const buttonText1 = create('button', ['btnreserv'], btnDiv);
   buttonText1.append('Reservation');
-
 }
 
 const getData = async () => {
@@ -81,6 +84,5 @@ const getData = async () => {
       createcard(data);
     });
 };
-let Item =0;
-const counterItem = () => Item+=1;
-export { getData, counterItem, Item };
+
+export default getData;
