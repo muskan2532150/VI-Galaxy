@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,700;1,400;1,700&display=swap");
 nav {
   display: flex;
   justify-content: space-between;
@@ -147,7 +149,7 @@ nav ul {
   display: none;
   justify-content: center;
   align-items: center;
-  padding: 1.2rem;
+  padding-top: 32rem;
   flex-direction: column;
   background-color: hsl(0deg, 0%, 0%);
   width: 100%;
@@ -216,8 +218,8 @@ nav ul {
 
 .commentCount {
   align-self: center;
-  font-size: 1.2rem;
-  font-weight: 600;
+  font-size: 2rem;
+  font-weight: 700;
   margin: 0;
   padding: 0;
 }
@@ -237,20 +239,20 @@ nav ul {
   height: 100%;
   font-size: 1.2rem;
   font-weight: 600;
-  gap: 0.5rem;
+  gap: 0.3rem;
 }
 .comment-content .comment {
   margin: 0;
   border: none;
   text-align: start;
-  padding: 0.1rem 0.5rem 0.1rem 0.5rem;
-  border-radius: 2rem;
-  background-color: rgba(238, 110, 5, 0.87);
+  padding: 0.5rem 1rem;
+  border-radius: 0.2rem;
+  background-color: rgba(238, 110, 5, 0.651);
   color: rgb(255, 255, 255);
-  width: 70%;
+  width: 60%;
 }
 .comment-content .comment:nth-child(odd) {
-  background-color: rgba(134, 133, 133, 0.671);
+  background-color: rgba(134, 133, 133, 0.37);
   color: hsla(0deg, 0%, 0%, 0.836);
 }
 
@@ -270,8 +272,13 @@ nav ul {
   align-items: start;
   flex-direction: column;
   width: 100%;
-  padding-inline: 1.2rem;
+  padding-inline: 12rem;
   gap: 1rem;
+}
+
+* {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 700;
 }
 
 p {
@@ -281,5 +288,4 @@ p {
 
 h2, h3 {
   font-size: 2rem;
-  font-weight: 700;
 }/*# sourceMappingURL=main.css.map */
