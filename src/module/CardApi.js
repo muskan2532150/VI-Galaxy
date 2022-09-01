@@ -10,7 +10,7 @@ import { popStruct, homePage } from './structure.js';
 const date = new Date();
 const todayDate = date.toLocaleDateString('en-GB').split('/').join('-');
 
-const url = 'http://api.tvmaze.com/shows/1/episodes?specials=1';
+const url = 'https://api.tvmaze.com/shows/1/episodes?specials=1';
 
 const createcard = (data) => {
   const mainDiv = create('div', undefined, Home);
