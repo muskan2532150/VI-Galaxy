@@ -270,7 +270,7 @@ nav ul {
   justify-content: center;
   align-items: start;
   flex-direction: column;
-  width: 100%;
+  width: 50%;
   padding-inline: 12rem;
   gap: 1rem;
 }

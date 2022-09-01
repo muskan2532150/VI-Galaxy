@@ -1,5 +1,5 @@
 import create from './ceateElement.js';
-import { Home, arr, overLay,pop } from './Import.js';
+import { Home, arr, overLay,pop,i } from './Import.js';
 import getLike from './LikeApi.js';
 import { popStruct, setComment,getComment } from './popup.js';
 
@@ -10,6 +10,7 @@ const createcard = (data) => {
   getLike();
   [...data].forEach((el, index) => {
     if (el.image?.medium) {
+      counterItem();
       arr[index] = 0;
      homePage(el,mainDiv,index);
      const mainDivpop = create('div', ['main-pop'], pop);
@@ -80,5 +81,6 @@ const getData = async () => {
       createcard(data);
     });
 };
-
-export default getData;
+let Item =0;
+const counterItem = () => Item+=1;
+export { getData, counterItem, Item };

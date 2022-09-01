@@ -120,7 +120,7 @@
   form {
     @include display(flex, center, start);
     flex-direction: column;
-    width: 100%;
+    width: 50%;
     padding-inline: 12rem;
     gap: 1rem;
   }
