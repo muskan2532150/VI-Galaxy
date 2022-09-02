@@ -19,6 +19,7 @@ const homePage = (el, mainDiv, index) => {
   buttonText.type = 'button';
   const buttonText1 = create('button', ['btnreserv'], btnDiv);
   buttonText1.append('Reservation');
+  buttonText1.type = 'button';
 };
 
 const popStruct = (el, index, mainDivpop) => {
@@ -44,7 +45,6 @@ const popStruct = (el, index, mainDivpop) => {
   p3.append(`Rating:  ${el.rating.average}`);
   p4.append(`Runtime:  ${el.runtime}m`);
   const h31 = create('h3', ['commentCount'], mainDivpop);
-  h31.append('Comments');
   create('div', ['comment-content'], mainDivpop);
   const commentDiv = create('div', ['commentFormsec'], mainDivpop);
   const h3Text = create('h3', ['leave-cut'], commentDiv);
@@ -53,16 +53,18 @@ const popStruct = (el, index, mainDivpop) => {
   form.id = `${index + 40}`;
   const text = create('input', ['names'], form);
   text.type = 'text';
+  text.setAttribute('required', '');
   text.placeholder = 'Your name please';
   const input = create('textarea', ['textarea'], form);
   input.name = 'comment';
+  input.setAttribute('required', '');
   input.cols = 30; input.rows = 10;
   input.placeholder = 'Your comment in here';
   const button = create('button', undefined, form);
   button.type = 'submit';
   button.name = 'comment';
   button.append('Comment');
-  getComment(index);
+  getComment(index, h31);
 };
 
 export { popStruct, homePage };

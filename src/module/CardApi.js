@@ -4,7 +4,7 @@ import {
 } from './Import.js';
 import getLike from './LikeApi.js';
 import { setComment } from './popup.js';
-import { counterItem } from './counter.js';
+import { counter, counterItem } from './counter.js';
 import { popStruct, homePage } from './structure.js';
 
 const date = new Date();
@@ -18,6 +18,7 @@ const createcard = (data) => {
   [...data].forEach((el, index) => {
     if (el.image?.medium) {
       arr[index] = 0;
+      counter[index] = 0;
       homePage(el, mainDiv, index);
       const mainDivpop = create('div', ['main-pop'], pop);
       mainDivpop.id = index + 90;
@@ -25,8 +26,8 @@ const createcard = (data) => {
     }
   });
 
-  const number = document.querySelector('.number');
-  number.innerHTML=counterItem(arr);
+  const link = document.querySelectorAll('.link');
+  link[0].innerHTML = `Home(${counterItem(arr)})`;
 
   const mainPop = document.querySelectorAll('.main-pop');
 
@@ -50,7 +51,11 @@ const createcard = (data) => {
         const comm = document.querySelectorAll('.textarea');
         setComment(formId - 40, names[index].value, comm[index].value);
         const commentAll = document.querySelectorAll('.comment-content');
+        const counterAll = document.querySelectorAll('.commentCount');
         const pText = create('p', ['comment'], commentAll[formId - 40]);
+        counter[formId - 40] += 1;
+        counterAll[formId - 40].innerHTML = ' ';
+        counterAll[formId - 40].innerHTML = `Comments(${counter[formId - 40]})`;
         pText.append(`${todayDate}  ${names[index].value} : ${comm[index].value} `);
         forms.reset();
       }
