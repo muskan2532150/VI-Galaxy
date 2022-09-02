@@ -25,7 +25,8 @@ const createcard = (data) => {
     }
   });
 
-  counterItem(arr);
+  const number = document.querySelector('.number');
+  number.innerHTML=counterItem(arr);
 
   const mainPop = document.querySelectorAll('.main-pop');
 
