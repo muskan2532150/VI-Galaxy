@@ -89,6 +89,8 @@ nav ul {
   align-items: center;
   font-weight: 600;
   color: rgba(238, 110, 5, 0.87);
+  width: -webkit-max-content;
+  width: -moz-max-content;
   width: max-content;
   font-size: 1.1vw;
 }
@@ -120,6 +122,8 @@ nav ul {
   border: none;
   border-radius: 2rem;
   text-align: center;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
   height: fit-content;
   padding: 1rem 0;
   margin-bottom: 1rem;
@@ -213,6 +217,8 @@ nav ul {
 }
 .img-head img {
   width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
   height: fit-content;
   border-radius: 0.8rem 0.8rem 0 0;
 }
@@ -349,4 +355,11 @@ h2, h3 {
   border-radius: 1rem;
   box-shadow: 0px 0px 15px 0 rgba(243, 100, 17, 0.733);
   border: none;
+}
+
+footer {
+  padding: 2%;
+  text-align: center;
+  border-top: 2px solid;
+  font-size: 2vw;
 }/*# sourceMappingURL=main.css.map */
