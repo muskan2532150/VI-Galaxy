@@ -3,7 +3,7 @@ import {
   Home, arr, overLay, pop,
 } from './Import.js';
 import getLike from './LikeApi.js';
-import { setComment } from './popup.js';
+import { getComment, setComment } from './popup.js';
 import { counter, counterItem } from './counter.js';
 import { popStruct, homePage } from './structure.js';
 
@@ -50,13 +50,7 @@ const createcard = (data) => {
         const names = document.querySelectorAll('.names');
         const comm = document.querySelectorAll('.textarea');
         setComment(formId - 40, names[index].value, comm[index].value);
-        const commentAll = document.querySelectorAll('.comment-content');
-        const counterAll = document.querySelectorAll('.commentCount');
-        const pText = create('p', ['comment'], commentAll[formId - 40]);
-        counter[formId - 40] += 1;
-        counterAll[formId - 40].innerHTML = ' ';
-        counterAll[formId - 40].innerHTML = `Comments(${counter[formId - 40]})`;
-        pText.append(`${todayDate}  ${names[index].value} : ${comm[index].value} `);
+        commentShow(formId);
         forms.reset();
       }
     });
@@ -79,5 +73,14 @@ const getData = async () => {
       createcard(data);
     });
 };
+
+const commentShow = async (formId)=> {
+        const counterAll = document.querySelectorAll('.commentCount');
+        const commentAll = document.querySelectorAll('.comment-content');
+        commentAll[formId - 40].innerHTML = ' ';
+        counterAll[formId - 40].innerHTML = ' ';
+
+       await getComment(formId-40,counterAll[formId-40]);
+}
 
 export default getData;

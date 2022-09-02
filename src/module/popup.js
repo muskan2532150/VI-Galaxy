@@ -3,7 +3,7 @@ import { counter, countercomment } from './counter.js';
 
 const url = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/UUylOKb37iCx1pUBEwLt/comments';
 const setComment = async (id, name, comment) => {
-  fetch(url, {
+ await fetch(url, {
     method: 'POST',
     body: JSON.stringify({
       item_id: `${id}`,
@@ -20,6 +20,7 @@ const showComment = async (data, id, h31) => {
   const comment = document.querySelectorAll('.comment-content');
   if (countercomment([...data])) {
     [...data].forEach((el) => {
+      console.log(el);
       const pText = create('p', ['comment'], comment[id]);
       pText.append(`${el.creation_date}  ${el.username} : ${el.comment} `);
     });
@@ -30,7 +31,9 @@ const showComment = async (data, id, h31) => {
 
 const getComment = async (id, h31) => {
   await fetch(`${url}?item_id=${id}`)
-    .then((response) => response.json()).then((data) => {
+    .then((response) => response.json())
+    .then((data) => {
+      if(!data.error)
       showComment(data, id, h31);
     });
 };
