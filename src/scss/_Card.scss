@@ -1,10 +1,7 @@
-@import"header";
-@import"variables";
-
 .cards {
-  box-shadow: 0px 0px 19px 7px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 19px 7px rgba(0, 0, 0, 0.1);
   border: none;
-  border-radius: 1.0rem;
+  border-radius: 1rem;
 
   img {
     width: 100%;
@@ -13,20 +10,23 @@
 
   > div {
     @include display(flex, space-between, flex-start);
+
     margin: 5%;
 
-   > div {
-    @include display(flex, end, end);
-    flex-direction: column;
+    > div {
+      @include display(flex, end, end);
 
-    p {
-      @include display(flex, center, center);
-      font-weight: 600;
-      color: $color;
-      width: max-content;
-      font-size: 1.1vw;
+      flex-direction: column;
+
+      p {
+        @include display(flex, center, center);
+
+        font-weight: 600;
+        color: $color;
+        width: max-content;
+        font-size: 1.1vw;
+      }
     }
-   }
 
     h3 {
       font-size: 1.7vw;
@@ -40,13 +40,12 @@
         color: $color;
       }
     }
-   
-
   }
 }
 
 .btndiv {
   @include display(flex, center, center);
+
   flex-direction: column;
 }
 

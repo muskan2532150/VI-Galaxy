@@ -1,11 +1,13 @@
-@mixin display($display, $content, $item) {
-  display: $display;
-  justify-content: $content;
-  align-items: $item;
+@import "mixin";
+
+* {
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 700;
 }
 
 nav {
   @include display(flex, space-between, center);
+
   padding-inline: 5%;
 
   a {
@@ -14,14 +16,14 @@ nav {
 
     img {
       font-size: 2.5vw;
-    transform: skewX(9deg);
-    text-decoration: none;
+      transform: skewX(9deg);
+      text-decoration: none;
     }
-
   }
 
   ul {
     @include display(flex, end, center);
+
     list-style: none;
     gap: 10%;
     font-size: 1.7vw;

@@ -1,16 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,700;1,400;1,700&display=swap');
 #home {
   pointer-events: none;
 
   > div {
-  display: grid;
-  grid-template-columns: 30% 30% 30%;
-  margin: 30px;
-  gap: 1.5rem;
-  padding-inline:15%;
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    margin: 30px;
+    gap: 1.5rem;
+    padding-inline: 15%;
   }
 
-  i,button {
+  i,
+  button {
     pointer-events: visible;
   }
 }
