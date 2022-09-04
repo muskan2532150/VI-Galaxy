@@ -1,5 +1,6 @@
 #home {
   pointer-events: none;
+  padding-top: 6%;
 
   > div {
     display: grid;
@@ -7,10 +8,26 @@
     margin: 30px;
     gap: 1.5rem;
     padding-inline: 15%;
+    margin-bottom: 0;
   }
 
   i,
   button {
     pointer-events: visible;
   }
+}
+
+main > div:last-child {
+  margin-bottom: 7%;
+}
+
+.scrollbtn {
+  display: block;
+    float: right;
+    width: 6%;
+    padding: 1%;
+    border: 0;
+    background-color: transparent;
+    font-size: 1.5vw;
+    
 }

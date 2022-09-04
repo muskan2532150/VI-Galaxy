@@ -1,0 +1,46 @@
+$breakpoints: (
+  'small':  768px,
+  'medium': 992px,
+  'large':  1200px
+) !default;
+
+@mixin breakpoint-min($bp) {
+    @media (min-width: $bp) {
+        @content;
+    }
+}
+
+@mixin breakpoint-max($bp) {
+    @media (max-width: $bp) {
+        @content;
+    }
+}
+
+@mixin breakpoint-min-max($bp1, $bp2) {
+    @media (min-width: $bp1) and (max-width: $bp2) {
+        @content;
+    }
+}
+
+@include breakpoint-max(900px) {
+    // will be applied to element below width $bp-large
+
+    .commentFormsec form {
+        padding-inline: 3rem;
+
+        textarea {
+         width: auto;
+        }
+
+        button {
+            width: 30vw;
+        }
+    }
+    .sumpara {
+        margin: 16px;
+    }
+
+    .commentCount {
+        padding-bottom: 10px;
+    }
+}

@@ -3,11 +3,20 @@
 * {
   font-family: 'Ubuntu', sans-serif;
   font-weight: 700;
+  scroll-behavior: smooth;
+}
+
+/* utility */
+html.sr #home {
+  visibility: hidden;
 }
 
 nav {
   @include display(flex, space-between, center);
-
+  position: fixed;
+  background-color: $bgcolor;
+  top: 0;
+  width: 90%;
   padding-inline: 5%;
 
   a {

@@ -1,7 +1,9 @@
-import { getComment } from './popup.js';
+import Comment from './popup.js';
 import create from './ceateElement.js';
 
-const homePage = (el, mainDiv, index) => {
+const Structure = class{
+// Create structure for Cards in Home page
+ static cardStruct = (el, mainDiv, index) => {
   const cards = create('div', ['cards'], mainDiv);
   cards.id = index;
   const img = create('img', ['card-img'], cards);
@@ -22,7 +24,8 @@ const homePage = (el, mainDiv, index) => {
   buttonText1.type = 'button';
 };
 
-const popStruct = (el, index, mainDivpop) => {
+// Create structure for Pop up window
+ static popStruct = (el, index, mainDivpop) => {
   create('i', ['fa-solid', 'fa-xmark'], mainDivpop);
   const imgDiv = create('div', ['img-head'], mainDivpop);
   const img = create('img', undefined, imgDiv);
@@ -64,7 +67,12 @@ const popStruct = (el, index, mainDivpop) => {
   button.type = 'submit';
   button.name = 'comment';
   button.append('Comment');
-  getComment(index, h31);
+  Comment.getComment(index, h31);
 };
 
-export { popStruct, homePage };
+};
+
+
+
+
+export default Structure;
