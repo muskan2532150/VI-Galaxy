@@ -1,0 +1,65 @@
+.cards {
+  box-shadow: 0 0 19px 7px rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 1rem;
+
+  img {
+    width: 100%;
+    border-radius: 7% 7% 0 0;
+  }
+
+  > div {
+    @include display(flex, space-between, flex-start);
+
+    margin: 5%;
+
+    > div {
+      @include display(flex, end, end);
+
+      flex-direction: column;
+
+      p {
+        @include display(flex, center, center);
+
+        font-weight: 600;
+        color: $color;
+        width: max-content;
+        font-size: 1.1vw;
+      }
+    }
+
+    h3 {
+      font-size: 1.7vw;
+      margin: 0;
+    }
+
+    i {
+      font-size: 1.4vw;
+
+      &:hover {
+        color: $color;
+      }
+    }
+  }
+}
+
+.btndiv {
+  @include display(flex, center, center);
+
+  flex-direction: column;
+}
+
+.btncomment,
+.btnreserv {
+  background-color: $color;
+  color: hsl(0, 0%, 0%);
+  font-size: 1.2vw;
+  font-weight: 700;
+  width: 95%;
+  border: none;
+  border-radius: 2rem;
+  text-align: center;
+  height: fit-content;
+  padding: 1rem 0;
+  margin-bottom: 1rem;
+}
